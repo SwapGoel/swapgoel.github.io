@@ -15,19 +15,19 @@ const textureLoader = new THREE.TextureLoader();
 
 //////////////////////////////////////
 //NOTE import all texture
-const starTexture = textureLoader.load("./image/stars.jpg");
-const sunTexture = textureLoader.load("./image/sun.jpg");
-const mercuryTexture = textureLoader.load("./image/mercury.jpg");
-const venusTexture = textureLoader.load("./image/venus.jpg");
-const earthTexture = textureLoader.load("./image/earth.jpg");
-const marsTexture = textureLoader.load("./image/mars.jpg");
-const jupiterTexture = textureLoader.load("./image/jupiter.jpg");
-const saturnTexture = textureLoader.load("./image/saturn.jpg");
-const uranusTexture = textureLoader.load("./image/uranus.jpg");
-const neptuneTexture = textureLoader.load("./image/neptune.jpg");
-const plutoTexture = textureLoader.load("./image/pluto.jpg");
-const saturnRingTexture = textureLoader.load("./image/saturn_ring.png");
-const uranusRingTexture = textureLoader.load("./image/uranus_ring.png");
+const starTexture = textureLoader.load("./Solar_System/image/stars.jpg");
+const sunTexture = textureLoader.load("./Solar_System/image/sun.jpg");
+const mercuryTexture = textureLoader.load("./Solar_System/image/mercury.jpg");
+const venusTexture = textureLoader.load("./Solar_System/image/venus.jpg");
+const earthTexture = textureLoader.load("./Solar_System/image/earth.jpg");
+const marsTexture = textureLoader.load("./Solar_System/image/mars.jpg");
+const jupiterTexture = textureLoader.load("./Solar_System/image/jupiter.jpg");
+const saturnTexture = textureLoader.load("./Solar_System/image/saturn.jpg");
+const uranusTexture = textureLoader.load("./Solar_System/image/uranus.jpg");
+const neptuneTexture = textureLoader.load("./Solar_System/image/neptune.jpg");
+const plutoTexture = textureLoader.load("./Solar_System/image/pluto.jpg");
+const saturnRingTexture = textureLoader.load("./Solar_System/image/saturn_ring.png");
+const uranusRingTexture = textureLoader.load("./Solar_System/image/uranus_ring.png");
 //////////////////////////////////////
 
 //////////////////////////////////////
