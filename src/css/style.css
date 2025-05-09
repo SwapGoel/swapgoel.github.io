@@ -16,7 +16,7 @@
   --text-color: #222222;
   --text-color-two: #ffffff;
   --bg-secondary: #000000;
-  --card-background: #f4f4f4;
+  --card-background: #ffffff;
   --bg-secondary-two: #111111;
 
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -29,7 +29,7 @@
   /* Max width */
   --width-small: 600px;
   --width-medium: 1100px;
-  --width-large: 1300px;
+  --width-large: 90%;
 }
 
 [data-theme="dark"] {
@@ -90,6 +90,8 @@ body {
   z-index: 20;
   height: 80px;
   width: 100%;
+  max-width: 92%;
+
 }
 
 .navbar .nav-menu {
@@ -108,8 +110,40 @@ body {
 /* Make each card a positioning context and give it left padding equal to your logo width + gutter */
 .card-wrapper {
   position: relative;
-  padding-left: 150px; /* adjust to logo width (e.g. 50px) + 10px gap */
+  padding-left: 0px; /* adjust to logo width (e.g. 50px) + 10px gap */
 }
+
+
+
+.card{
+  background: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 10px;
+  padding-left: 150px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.card {
+  position: relative; /* ensure it’s positioned */
+  z-index: 0;         /* default stacking level */
+}
+
+.card-logo-outside{
+  padding-left: 20px;
+  z-index: 5;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-secondary i {
+  margin-right: 10px;
+}
+
 
 /* Absolutely position the logo inside the padded area */
 .card-logo-outside {
@@ -188,6 +222,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 2rem auto 5rem;
+
 }
 
 #projects .btn {
@@ -213,7 +248,6 @@ body {
 .project-info {
   display: flex;
   justify-content: space-between;
-  opacity: 0;
   position: relative;
   transition: 0.5s ease-in-out;
 }
@@ -268,6 +302,152 @@ body {
   font-size: 0.8rem;
 }
 
+.theme-switch {
+  position: relative;            /* establish a positioning context */
+  width: 48px;                    /* set to icon size */
+  height: 48px;
+}
+
+.toggle-icons {
+  position: absolute;            /* fill the parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.toggle-icons img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+/* Initially show moon, hide sun */
+.toggle-icons .moon {
+  opacity: 1;
+  z-index: 2;
+}
+.toggle-icons .sun {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* When checked, swap visibility */
+#switch:checked + .toggle-icons .moon {
+  opacity: 0;
+}
+#switch:checked + .toggle-icons .sun {
+  opacity: 1;
+}
+
+/* Wrapper spacing (your existing classes) */
+.skills-container { padding: 2rem 1rem; }
+.division { height: 4px; background: var(--accent); margin-bottom: 1.5rem; }
+.content-text h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+/* Group headings */
+.skills-group {
+  margin-bottom: 2.5rem;
+}
+.skills-group__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* Grid list of icons */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Icon + label stack */
+.skills-showcase__list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Uniform icon sizing */
+.skills-showcase__list-item i,
+.skills-showcase__list-item img {
+  font-size: 2.5rem;   /* for Devicon <i> */
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain; /* for <img> */
+}
+
+/* Text under icons */
+.skills-showcase__label {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #444;
+}
+
+/* Invert all skill icons in dark theme */
+[data-theme="dark"] .skills-showcase__list-item i,
+[data-theme="dark"] .skills-showcase__list-item img {
+  /* invert(1) == 100% inversion; adjust amount for less-harsh effects */
+  filter: invert(75%) brightness(1.5) contrast(1.5) saturate(0) ;
+  /* ensure the filter is isolated only to the icon, not its container */
+  mix-blend-mode: normal;
+}
+
+/* In dark mode, use --text-color (white) instead of #444 */
+[data-theme="dark"] .skills-showcase__label {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .card{
+  background: rgba(150,150,150, 0.12);
+  padding: 1.5rem;
+  border-radius: 10px;
+  padding-left: 150px;
+  box-shadow: rgba(255, 255, 255,0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+[data-theme="dark"] .card {
+  position: relative; /* ensure it’s positioned */
+  z-index: 0;         /* default stacking level */
+}
+
+[data-theme="dark"] .card-logo-outside{
+  padding-left: 20px;
+  z-index: 5;
+}
+
+[data-theme="dark"] .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255,255,255, 0.5);
+}
+
+.typing-container {
+  font-size: 24px;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
 /* Responsiveness */
 
 @media (max-width: 1000px) {
@@ -278,7 +458,28 @@ body {
 }
 
 @media (max-width: 768px) {
+  .card-wrapper .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 15px;
+  }
+
+  .card-logo-outside {
+    position: static;
+    width: 100px;          
+    margin-top: 40px;
+  }
+
+  /* Optional explicit ordering */
+  .card-logo-outside  { order: 1; }
+  .card h3            { order: 2; font-size: 1.2rem; }  /* adjust as needed */
+  .card h4            { order: 3; font-size: 1rem; }
+  .card span, 
+  .card p             { order: 4; font-size: 0.9rem; }
 }
+
 
 @media (max-width: 1200px) {
   .navbar .nav-menu {
@@ -353,3 +554,4 @@ body {
     width: 80%;
   }
 }
+

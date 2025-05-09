@@ -37,7 +37,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="src/assets/logo_title.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="src/assets/logo_title_32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="src/assets/logo_title_16.png" />
-    <link rel="manifest" href="src/assets/favicon/site.webmanifest" />
+    <link rel="manifest" href="src/assets/site.webmanifest" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"/>
+
+
 
     <!-- Styles -->
     <link
@@ -66,10 +70,11 @@
             <li><a class="nav-link" href="#skills">SKILLS</a></li>
             <li><a class="nav-link" href="#contact">CONTACT</a></li>
             <li>
-              <a class="nav-link btn btn-primary" href="mailto:swapnilkumargoel@gmail.com">
-                EMAIL <i class="fas fa-envelope"></i>
+              <a class="nav-link btn btn-primary" href="src/assets/Swapnil_Kumar_Goel_Resume.pdf" target="_blank">
+                RESUME    <i class="fas fa-file-alt"></i>
               </a>
             </li>
+
             <div class="theme-switch">
               <input type="checkbox" id="switch" />
               <label class="toggle-icons" for="switch">
@@ -88,57 +93,64 @@
 
       <section class="header-container">
         <img class="profile-image" src="src/assets/profile-image.png" alt="Swapnil Kumar Goel" />
-        <h1>Hi, I'm Swapnil Kumar Goel</h1>
+        <br />
+        <h1>👋 Hi ! I'm Swapnil.</h1>
         <div class="content-text">
-          <h2>Signal Processing Engineer</h2>
-          <h2>Applied Geophysics Specialist</h2>
-          <p>
-            Signal Processing Engineer at GalaxEye, Master's graduate in Applied Geophysics from IIT ISM Dhanbad, building seismic data visualization tools and AI-driven geophysical workflows.
-          </p>
+          <div class="typing-container">
+            I'm into <h3><span id="typed-text"></span><span class="cursor">|</span></h3>
+          </div>
+
         </div>
         <a href="https://www.linkedin.com/in/swapnilkumargoel" class="btn btn-secondary" target="_blank">
-          Connect on LinkedIn
+          <i class="fab fa-linkedin fa-lg"></i> Connect on LinkedIn
         </a>
+
+
       </section>
     </header>
 
     <script src="src/js/script.js"></script>
+    <script src="src/js/typewriter.js"></script>
 
-    <!-- Projects -->
     <section id="projects" class="project-container container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Projects</h2>
-        <p>Highlights of my Master's thesis and individual geophysical projects</p>
+  <div class="division"></div>
+  <div class="content-text">
+    <h2>Projects</h2>
+    <p>Highlights of my Master's thesis and individual geophysical projects</p>
+  </div>
+
+  <article class="project">
+    <div class="card" data-bg="assets/images/denoiser-bg.jpg">
+      <div class="overlay"></div>
+      <div class="project-info">
+        <div class="project-bio">
+          <h3>Seismic Data Denoiser</h3>
+          <p>Python, OpenGL</p>
+        </div>
+        <div class="project-link">
+          <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
       </div>
-      <article class="project">
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Comparative Analysis of Seismic Data Denoising Techniques</h3>
-              <p>Python, OpenGL, Seismic Processing Libraries</p>
-            </div>
-            <div class="project-link">
-              <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
+    </div>
+
+    <div class="card" data-bg="src\assets\project\denoiser.jpg">
+      <div class="overlay"></div>
+      <div class="project-info">
+        <div class="project-bio">
+          <h3>3D Seismic Volume Visualizer</h3>
+          <p>Python, OpenGL, SEGY</p>
         </div>
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>3D Seismic Volume Visualizer</h3>
-              <p>Python, OpenGL, SEGY</p>
-            </div>
-            <div class="project-link">
-              <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
+        <div class="project-link">
+          <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-      </article>
-      <a href="https://github.com/swapgoel" class="btn btn-secondary" target="_blank">
-        See More <i class="fas fa-arrow-right"></i>
-      </a>
-    </section>
+      </div>
+    </div>
+  </article>
+
+  <a href="https://github.com/swapgoel" class="btn btn-secondary" target="_blank">
+    See More <i class="fas fa-arrow-right"></i>
+  </a>
+</section>
 
     <!-- Experience Section -->
     <section id="experience" class="container">
@@ -148,74 +160,94 @@
         <p>Professional roles and internships in geophysics and data science</p>
       </div>
       <div class="card-wrapper">
-        <img src="src/assets/logos/GalaxEye.jpg" alt="GalaxEye logo" class="card-logo-outside" />
         <div class="card">
+          <img src="src/assets/logos/GalaxEye.jpg" alt="GalaxEye logo" class="card-logo-outside" />
           <h3>Signal Processing Engineer</h3>
           <h4>GalaxEye</h4>
-          <span>Jun 2025 – Present</span>
-          <ul>
-            <li>Developing real-time seismic data visualization tools in Python and OpenGL.</li>
-            <li>Architected AI-driven workflows for automated geophysical interpretation.</li>
-            <li>Collaborated with cross-functional teams to integrate new signal-processing modules.</li>
-          </ul>
+          <span>May 2025 – Present | Bengaluru, TN</span>
         </div>
       </div>
       <br />
       <div class="card-wrapper">
-        <img src="src/assets/logos/turing.jpg" alt="Turing logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/turing.jpg" alt="Turing logo" class="card-logo-outside" />
           <h3>Mathematics Expert AI Data Trainer</h3>
           <h4>Turing</h4>
           <span>Oct 2024 – Dec 2024 | Remote</span>
-          <ul>
-            <li>Authored and LaTeX-formatted 100+ mathematics problems each paired with detailed, step-by-step solutions to train AI models.</li>
-            <li>Provided iterative RLHF feedback by assessing model outputs for correctness, logical rigor, & clarity, refining evaluation rubrics.</li>
-          </ul>
         </div>
       </div>
       <br />
       <div class="card-wrapper">
-        <img src="src/assets/logos/ongc.png" alt="ONGC logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/ongc.png" alt="ONGC logo" class="card-logo-outside" />
           <h3>Geophysical Summer Intern</h3>
           <h4>Oil and Natural Gas Corporation Limited (ONGC)</h4>
           <span>May 2024 – Jun 2024 | Chennai, TN</span>
-          <ul>
-            <li>Led body-wave analysis workflows: first-picking, velocity model building, and tomographic inversion for subsurface characterization.</li>
-            <li>Collaborated with a 4-member team to process 2D seismic lines using software, improving resolution of stratigraphic targets by 15%.</li>
-          </ul>
         </div>
       </div>
       <!-- Add more roles as needed -->
+
+      <br />
+      <div class="card-wrapper">
+        
+        <div class="card">
+          <img src="src/assets/logos/infosys.png" alt="Turing logo" class="card-logo-outside" />
+          <h3>Virtual Internship</h3>
+          <h4>Infosys Springboard</h4>
+          <span>Oct 2024 – Dec 2024 | Remote</span>
+        </div>
+      </div>
+      <br />
+      <div class="card-wrapper">
+        
+        <div class="card">
+          <img src="src/assets/logos/mathworks.png" alt="ONGC logo" class="card-logo-outside" />
+          <h3>AI/ML Virtual Internship</h3>
+          <h4>MathWorks Inc.</h4>
+          <span>May 2024 – Jun 2024 | Remote</span>
+        </div>
+      </div>
+
+      <br />
+      <div class="card-wrapper">
+        
+        <div class="card">
+          <img src="src/assets/logos/niser.png" alt="ONGC logo" class="card-logo-outside" />
+          <h3>Summer Research Intern</h3>
+          <h4>National Institute of Science Education and Research (NISER)</h4>
+          <span>May 2023 – Jul 2023 | Bhubaneswar, OD</span>
+        </div>
+      </div>
     </section>
 
     <!-- Education Section -->
     <section id="education" class="container">
       <div class="division"></div>
-      <h2>Education</h2>
+      <div class="content-text">
+        <h2>Education</h2>
+        <p>Highlights of my academic journey</p>
+      </div>
       <div class="card-wrapper">
-        <img src="src/assets/logos/iit_ism.png" alt="Education logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/iit_ism.png" alt="Education logo" class="card-logo-outside" />
           <h3>M.Sc.Tech. in Applied Geophysics</h3>
           <h4>Indian Institute of Technology (IIT ISM), Dhanbad</h4>
           <span>Aug 2022 – May 2025</span>
           <p>GPA: 8.27</p>
-          <ul>
-            <li>Relevant Courses: Digital Signal Processing, Soft Computing, Deep Learning, Building Software Systems</li>
-          </ul>
         </div>
       </div>
       <br />
       <div class="card-wrapper">
-        <img src="src/assets/logos/mgkvp.jpeg" alt="Education logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/mgkvp.jpeg" alt="Education logo" class="card-logo-outside" />
           <h3>B.Sc. in Mathematics & Physics</h3>
           <h4>Mahatma Gandhi Kashi Vidyapeeth (MGKVP), Varanasi</h4>
           <span>Aug 2019 – May 2022</span>
           <p>GPA: 8.05</p>
-          <ul>
-            <li>Relevant Courses: Linear Algebra, Discrete Mathematics, Calculus, Statistics, Probability, Principles of Computer Science</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -223,47 +255,144 @@
     <!-- Trainings Section -->
     <section id="trainings" class="container">
       <div class="division"></div>
-      <h2>Trainings</h2>
+      <div class="content-text">
+        <h2>Trainings</h2>
+        <p>Highlights of my training experiences</p>
+      </div>
       <div class="card-wrapper">
-        <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
           <h3>Geophysical Field Training</h3>
           <h4>IIT ISM Dhanbad</h4>
           <span>Dec 2023</span>
-          <ul>
-            <li>Conducted multi-method surveys (seismic, GPR, resistivity, gravity).</li>
-            <li>Mentored students and developed MATLAB dispersion analysis scripts.</li>
-          </ul>
         </div>
       </div>
       <br />
       <div class="card-wrapper">
-        <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
+        
         <div class="card">
+          <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
           <h3>Geological Field Training</h3>
           <h4>IIT ISM Dhanbad</h4>
           <span>Dec 2022 – Jan 2023</span>
-          <ul>
-            <li>Measured structural geology parameters and assisted in facies mapping.</li>
-            <li>Employed GPS/GIS for station positioning and interpreted structural frameworks.</li>
-          </ul>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="skills-container container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Skills</h2>
-      </div>
-      <ul class="skills-list">
-        <li>Python, Java, MATLAB, MySQL, HTML/CSS, JavaScript</li>
-        <li>TensorFlow, PyTorch, Scikit-learn, OpenCV, Pandas, NumPy, Matplotlib</li>
-        <li>Git, Docker, Linux, ArcGIS, QGIS, VS Code</li>
-        <li>Signal Processing, Seismic Interpretation, OpenGL Visualization</li>
-      </ul>
-    </section>
+  <section id="skills" class="skills-container container">
+  <div class="division"></div>
+  <div class="content-text">
+    <h2>Skills</h2>
+  </div>
+
+  <!-- Programming Languages -->
+  <div class="skills-group">
+    <h3 class="skills-group__title">Languages</h3>
+    <ul class="skills-list skills-showcase__list">
+      <li class="skills-showcase__list-item">
+        <i class="devicon-python-plain colored"></i>
+        <span class="skills-showcase__label">Python</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-java-plain colored"></i>
+        <span class="skills-showcase__label">Java</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-matlab-plain colored"></i>
+        <span class="skills-showcase__label">MATLAB</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-mysql-plain colored"></i>
+        <span class="skills-showcase__label">MySQL</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-html5-plain colored"></i>
+        <span class="skills-showcase__label">HTML</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-css3-plain colored"></i>
+        <span class="skills-showcase__label">CSS</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-javascript-plain colored"></i>
+        <span class="skills-showcase__label">JavaScript</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Frameworks & Libraries -->
+  <div class="skills-group">
+    <h3 class="skills-group__title">Frameworks & Libraries</h3>
+    <ul class="skills-list skills-showcase__list">
+      <li class="skills-showcase__list-item">
+        <i class="devicon-tensorflow-original colored"></i>
+        <span class="skills-showcase__label">TensorFlow</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg"
+          alt="PyTorch"
+          class="devicon pytorch"
+        >
+        <span class="skills-showcase__label">PyTorch</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-scikitlearn-plain colored"></i>
+        <span class="skills-showcase__label">Scikit-learn</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img src="src/assets/logos/opencv.png" alt="QGIS" class="skills-icon" />
+        <span class="skills-showcase__label">OpenCV</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-pandas-plain colored"></i>
+        <span class="skills-showcase__label">Pandas</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-numpy-original colored"></i>
+        <span class="skills-showcase__label">NumPy</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-matplotlib-plain colored"></i>
+        <span class="skills-showcase__label">Matplotlib</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tools & Platforms -->
+  <div class="skills-group">
+    <h3 class="skills-group__title">Tools & Platforms</h3>
+    <ul class="skills-list skills-showcase__list">
+      <li class="skills-showcase__list-item">
+        <i class="devicon-git-plain colored"></i>
+        <span class="skills-showcase__label">Git</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-docker-plain colored"></i>
+        <span class="skills-showcase__label">Docker</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-linux-plain colored"></i>
+        <span class="skills-showcase__label">Linux</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img src="src/assets/logos/ARCGIS.png" alt="ArcGIS" class="skills-icon" />
+        <span class="skills-showcase__label">ArcGIS</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img src="src/assets/logos/QGIS.png" alt="QGIS" class="skills-icon" />
+        <span class="skills-showcase__label">QGIS</span>
+      </li>
+
+      <li class="skills-showcase__list-item">
+        <i class="devicon-vscode-plain colored"></i>
+        <span class="skills-showcase__label">VS Code</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
     <!-- Contact -->
     <footer id="contact" class="container">
@@ -277,6 +406,7 @@
         </p>
       </div>
       <p>© Swapnil Kumar Goel, 2025. All rights reserved.</p>
+      
     </footer>
   </body>
 </html>
