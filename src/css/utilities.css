@@ -103,7 +103,6 @@ h2::selection {
 .content-text p {
   padding: 0.5rem;
   margin: 0 auto;
-  max-width: none;
   text-align: center;
 }
 
