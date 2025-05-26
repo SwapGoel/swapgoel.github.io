@@ -589,3 +589,63 @@ body {
   }
 }
 
+/* 1) Make .card the positioning context */
+.project .card {
+  position: relative;
+  overflow: hidden;
+  /* your existing background rule, e.g.: */
+  /* background: url("../assets/project/QuakePedia.png") center center/cover no-repeat; */
+}
+
+/* 2) Stretch the overlay‐link to cover entire card */
+.card-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* must be above the semi‐transparent .overlay and .project-info layers */
+  z-index: 5;
+
+  /* invisible but clickable */
+  background: transparent;
+}
+
+/* 3) Ensure the .overlay does NOT intercept any clicks (hover/opacity effects can stay) */
+.project .card .overlay {
+  position: absolute;  /* presumably you already have this */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* allow clicks to pass through to .card-link-overlay */
+  pointer-events: none;
+}
+
+/* 4) Ensure project-info content still shows but doesn’t block clicks */
+.project .card .project-info {
+  position: relative;  /* so that its children can be positioned if needed */
+  z-index: 3;          /* below .card-link-overlay (z-index:5) */
+  pointer-events: none;  /* everything inside is “see‐through” except where we override */
+}
+
+/* 5) But allow the GitHub icon itself to be clickable (override pointer-events) */
+.project .project-link a {
+  position: relative;
+  z-index: 10;         /* above .card-link-overlay */
+  pointer-events: auto; /* restore pointer‐events on the icon link */
+}
+
+/* 6) Change cursor on hover so user knows entire card is clickable */
+.card-link-overlay:hover {
+  cursor: pointer;
+}
+
+/* 7) If you have a hover‐darkening effect on .card or .overlay, keep it, but ensure it doesn’t block clicks. */
+/* Example hover‐effect you might have: */
+.project .card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.2); /* semi-transparent black */
+  /* pointer-events: none;  <-- already set above */
+}

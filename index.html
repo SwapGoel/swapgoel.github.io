@@ -127,29 +127,24 @@
   </div>
 
   <article class="project">
-    <div class="card" data-bg="assets/images/denoiser-bg.jpg">
-      <div class="overlay"></div>
-      <div class="project-info">
-        <div class="project-bio">
-          <h3>Seismic Data Denoiser</h3>
-          <p>Python, OpenGL</p>
-        </div>
-        <div class="project-link">
-          <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-    </div>
+    <div class="card" data-bg="src/assets/project/QuakePedia.png">
+      <!-- ① This overlay‐link must be first inside .card -->
+      <a href="beachball.html" class="card-link-overlay"></a>
 
-    <div class="card" data-bg="src\assets\project\denoiser.jpg">
+      <!-- ② This .overlay should no longer intercept clicks -->
       <div class="overlay"></div>
+
       <div class="project-info">
         <div class="project-bio">
-          <h3>3D Seismic Volume Visualizer</h3>
-          <p>Python, OpenGL, SEGY</p>
+          <h3>Beach Ball Generator</h3>
+          <p>HTML, CSS, JS</p>
         </div>
-        <div class="project-link">
-          <a href="https://github.com/swapgoel" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
+        <!-- <div class="project-link">
+           ③ The GitHub icon stays on top of everything 
+          <a href="https://github.com/swapgoel" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div> -->
       </div>
     </div>
   </article>
@@ -158,6 +153,7 @@
     See More <i class="fas fa-arrow-right"></i>
   </a>
 </section>
+
 
     <!-- Experience Section -->
     <section id="experience" class="container">
@@ -316,6 +312,33 @@
   <div class="division"></div>
   <div class="content-text">
     <h2>Skills</h2>
+  </div>
+
+  <!-- Seismology Tools & Libraries -->
+  <div class="skills-group">
+    <h3 class="skills-group__title">Seismological Data Analysis</h3>
+    <ul class="skills-list skills-showcase__list">
+      <li class="skills-showcase__list-item">
+        <i class="devicon-bash-plain colored"></i>
+        <span class="skills-showcase__label">Shell Scripting</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <i class="devicon-bash-plain colored"></i>
+        <span class="skills-showcase__label">SAC</span>        
+      </li>
+      <li class="skills-showcase__list-item">
+         <i class="devicon-bash-plain colored"></i>
+        <span class="skills-showcase__label">TauP</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/The-AWK-Programming-Language.svg" alt="AWK" class="skills-icon" />
+        <span class="skills-showcase__label">AWK</span>
+      </li>
+      <li class="skills-showcase__list-item">
+        <img src="https://avatars.githubusercontent.com/u/1701221?s=280&v=4" alt="ObsPy" class="skills-icon" />
+        <span class="skills-showcase__label">ObsPy</span>
+      </li>
+    </ul>
   </div>
 
   <!-- Programming Languages -->

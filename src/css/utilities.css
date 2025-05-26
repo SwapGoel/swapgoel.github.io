@@ -106,16 +106,15 @@ h2::selection {
   text-align: center;
 }
 
-/* Project Images */
-
 /* project 1 */
 .project .card:nth-child(1) {
-  background: url(../assets/project/denoiser.jpg) center center/cover;
+  background: url(../assets/project/Quakepedia.png) center center/cover;
 }
 
 .project .card:nth-child(2) {
-  background: url(../assets/project/denoiser.jpg) center center/cover;
+  background: url(../assets/project/Quakepedia.png) center center/cover;
 }
+
 
 /* Media Queries */
 @media (max-width: 2000pxs) {
