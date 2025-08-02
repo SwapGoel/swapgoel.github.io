@@ -77,17 +77,27 @@ h2::selection {
 
 /* Header Container */
 .header-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 8rem;
-  padding: 1rem;
+  justify-content: flex-end;  /* Align video to the right */
+  padding-right: 10vw;        /* 10% padding from right */
+  background: #000;
+  font-family: sans-serif;
+  color: #fff;
 }
 
-.header-container > div {
-  margin-top: 1rem;
+.header-container a,
+.header-container h1,
+.header-container h3,
+.header-container p {
+  color: #fff; /* Forces text links and headings to stay visible */
 }
+
 
 .content-text {
   text-align: center;
