@@ -225,11 +225,9 @@ body {
 
 .overlay-text span {
   display: inline-block;
-  font-size: clamp(1.0rem, 4vw, 3rem);
+  font-size: clamp(1rem, 4vw, 3rem);
   font-weight: bold;
-  opacity: 0;
-  width:clamp(100px, 50vw, 100vw);
-  animation: fadeIn 1s ease-out 2s forwards;
+  width:clamp(100px, 54vw, 100vw);
   white-space: pre-wrap;
   word-break: break-word;
 }
