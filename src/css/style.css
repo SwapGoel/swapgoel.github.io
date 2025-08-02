@@ -217,7 +217,7 @@ body {
 
 .overlay-text {
   position: absolute;
-  left: 10vw;
+  left: 11vw;
   top: 20%;
   text-align: left;
   z-index: 1; /* Above background video */
@@ -236,10 +236,10 @@ body {
 
 .video-container1 {
   position: absolute;
-  top: calc(40% + 4rem); /* Align beneath overlay text */
+  top: calc(40% + 3rem); /* Align beneath overlay text */
   left: 5vw; /* Same left alignment as text */
   transform-origin: top left; /* Ensures scaling happens towards bottom-right */
-  width: clamp(100px, 55vw, 3000px); /* Grows proportionally with window */
+  width: clamp(100px, 50vw, 3000px); /* Grows proportionally with window */
   
   aspect-ratio: 16 / 9;
   z-index: 1;
