@@ -192,76 +192,28 @@ body {
 #hero {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
+#hero {
+  padding-top: 50; 
+  }
+
 
 .video-container {
   position: relative;
-  width: 56.25vh; /* 9:16 ratio */
-  height: 100vh;
-  overflow: visible;
-  z-index: 0; /* Ensure background */
+  width: 100vw;
+  height: auto;
+  overflow: visible; /* keeps video cleanly within container */
 }
 
 .video-container video {
+  width: 100vw;      /* take full width */
+  height: auto;     /* adjust height automatically */
   position: relative;
-  top: 55%;
-  left: clamp(200px, 65vw, 350px);
-  height: 80%;
-  width: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  overflow: visible;
-  z-index: 0; /* Send video behind */
-}
-
-.overlay-text {
-  position: absolute;
-  left: 11vw;
-  top: 20%;
-  text-align: left;
-  z-index: 1; /* Above background video */
-}
-
-.overlay-text span {
-  display: inline-block;
-  font-size: clamp(1rem, 4vw, 3rem);
-  font-weight: bold;
-  width:clamp(100px, 54vw, 100vw);
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.video-container1 {
-  position: absolute;
-  top: calc(40% + 3rem); /* Align beneath overlay text */
-  left: 5vw; /* Same left alignment as text */
-  transform-origin: top left; /* Ensures scaling happens towards bottom-right */
-  width: clamp(100px, 50vw, 3000px); /* Grows proportionally with window */
-  
-  aspect-ratio: 16 / 9;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.video-container1 video {
-  width: 100%;
-  height: 100%;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(-10px);
-  }
+  left: 10%;
+  transform: none; 
+  overflow: visible; /* no shift */
 }
 
 
