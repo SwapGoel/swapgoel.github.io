@@ -188,33 +188,31 @@ body {
   background-color: var(--bg-secondary);
 }
 
-/* Hero section */
+/* Hero Section */
 #hero {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
+  margin-top: 60px; /* equal to navbar height */
 }
-#hero {
-  padding-top: 50; 
-  }
 
-
+/* Video Container */
 .video-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: auto;
-  overflow: visible; /* keeps video cleanly within container */
+  overflow: hidden;
 }
 
+/* Video */
 .video-container video {
-  width: 100vw;      /* take full width */
-  height: auto;     /* adjust height automatically */
-  position: relative;
-  left: 10%;
-  transform: none; 
-  overflow: visible; /* no shift */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
+
 
 
 /* Projects */
@@ -580,6 +578,37 @@ body {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
+
+/* Hero Section */
+/* Navbar (example style – adjust height as needed) */
+
+/* Hero Section */
+#hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-top: 9vh; /* equal to navbar height */
+}
+
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Video */
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
 }
 
 @media (max-width: 600px) {
