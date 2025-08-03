@@ -589,7 +589,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: auto;
-  margin-top: 9vh; /* equal to navbar height */
+  margin-top: 80px; /* equal to navbar height */
 }
 
 /* Video Container */
