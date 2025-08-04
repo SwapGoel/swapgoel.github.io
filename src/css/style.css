@@ -197,6 +197,23 @@ body {
   margin-top: 60px; /* equal to navbar height */
 }
 
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Video */
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
 
 /* Projects */
 #projects {
@@ -575,6 +592,21 @@ body {
   margin-top: 80px; /* equal to navbar height */
 }
 
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Video */
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+} 
 
 }
 
