@@ -58,3 +58,19 @@ if (currentTheme) {
     toggleSwitch.checked = true;
   }
 }
+
+  function setVideoSource() {
+    const video = document.getElementById("interest-video");
+    const source = video.querySelector("source");
+    
+    if (window.innerWidth <= 768) {
+      source.src = "src/assets/Portfolio-mobile.mp4";
+    } else {
+      source.src = "src/assets/Portfolio.mp4";
+    }
+
+    video.load();
+  }
+
+  setVideoSource();
+  window.addEventListener("resize", setVideoSource);

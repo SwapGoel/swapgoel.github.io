@@ -197,23 +197,6 @@ body {
   margin-top: 60px; /* equal to navbar height */
 }
 
-/* Video Container */
-.video-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-}
-
-/* Video */
-.video-container video {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-
 
 /* Projects */
 #projects {
@@ -592,22 +575,6 @@ body {
   margin-top: 80px; /* equal to navbar height */
 }
 
-/* Video Container */
-.video-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-}
-
-/* Video */
-.video-container video {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
 
 }
 
@@ -683,3 +650,4 @@ body {
   background-color: rgba(0, 0, 0, 0.2); /* semi-transparent black */
   /* pointer-events: none;  <-- already set above */
 }
+
