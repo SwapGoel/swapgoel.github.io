@@ -10,7 +10,7 @@
     <meta name="title" content="SK Goel" />
     <meta
       name="description"
-      content="Portfolio of Swapnil Kumar Goel, Signal Processing Engineer at GalaxEye with expertise in seismic data visualization, geophysical analysis, and AI-driven signal processing."
+      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel with expertise in hyperspectral imaging, GIS, and geophysical analysis."
     />
 
     <!-- Open Graph / Facebook -->
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Swapnil Kumar Goel - Portfolio" />
     <meta
       property="og:description"
-      content="Portfolio of Swapnil Kumar Goel, Signal Processing Engineer at GalaxEye. Explore projects in seismic visualization, AI data training, and geophysical research."
+      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel. Explore his journey through hyperspectral imaging, SAR processing, and geophysical research."
     />
     <meta property="og:image" content="src/assets/logo_title.png" />
 
@@ -29,7 +29,7 @@
     <meta property="twitter:title" content="Swapnil Kumar Goel - Portfolio" />
     <meta
       property="twitter:description"
-      content="Portfolio of Swapnil Kumar Goel, Signal Processing Engineer and Applied Geophysics Master's graduate from IIT ISM Dhanbad."
+      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel and Applied Geophysics Master's graduate from IIT ISM Dhanbad."
     />
     <meta property="twitter:image" content="src/assets/logo_title.png" />
 
@@ -52,6 +52,10 @@
     />
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/utilities.css" />
+
+    <!-- Journey map (hero) -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" />
+    <link rel="stylesheet" href="src/css/journey.css" />
   </head>
   <body>
     <header id="hero">
@@ -91,23 +95,25 @@
         </div>
       </nav>
 
-<section class="header-container">
-  <div class="video-container">
-    <video id="interest-video"
-           playsinline
-           muted
-           autoplay
-           loop
-           onloadedmetadata="this.playbackRate=1.0;">
-      <source type="video/mp4">
-    </video>
+<section id="journey" aria-label="Career journey map">
+  <div class="journey-sticky">
+    <div id="journey-map"></div>
+    <div class="journey-map-gradient"></div>
+    <div class="journey-card" id="journey-card"></div>
+    <ul class="journey-progress" id="journey-progress"></ul>
+  </div>
+  <div class="journey-steps" id="journey-steps">
+    <noscript>Enable JavaScript to view the interactive journey map — see Experience &amp; Education below.</noscript>
   </div>
 </section>
 
     </header>
- 
+
     <script src="src/js/script.js"></script>
     <script src="src/js/typewriter.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+    <script src="src/js/journey.js"></script>
 
     <section id="projects" class="project-container container">
             <div class="division"></div>
@@ -156,63 +162,32 @@
       </div>
       <div class="card-wrapper">
         <div class="card">
+          <img src="src/assets/logos/pixxel.png" alt="Pixxel logo" class="card-logo-outside" onerror="this.style.display='none'" />
+          <h3>Associate Image Processing Engineer</h3>
+          <h4>Pixxel</h4>
+          <span>Nov 2025 – Present | Bengaluru, KA</span>
+          <p>Hyperspectral image processing: built a Web GIS and an error-monitoring dashboard, georeferencing, band alignment and mosaic creation, AOI auto-clipping, QA/QC of hyperspectral images, and 2 QGIS plugins for hyperspectral analysis.</p>
+        </div>
+      </div>
+      <br />
+      <div class="card-wrapper">
+        <div class="card">
           <img src="src/assets/logos/GalaxEye.jpg" alt="GalaxEye logo" class="card-logo-outside" />
-          <h3>Signal Processing Engineer</h3>
+          <h3>Signal Processing Intern</h3>
           <h4>GalaxEye</h4>
-          <span>May 2025 – Present | Bengaluru, TN</span>
+          <span>May 2025 – Nov 2025 | Bengaluru, KA</span>
+          <p>Synthetic Aperture Radar (SAR): autofocus algorithms, image registration, geocoding and coregistration, and SAR image quality automation.</p>
         </div>
       </div>
       <br />
       <div class="card-wrapper">
         
         <div class="card">
-          <img src="src/assets/logos/turing.jpg" alt="Turing logo" class="card-logo-outside" />
-          <h3>Mathematics Expert AI Data Trainer</h3>
-          <h4>Turing</h4>
-          <span>Oct 2024 – Dec 2024 | Remote</span>
-        </div>
-      </div>
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/ongc.png" alt="ONGC logo" class="card-logo-outside" />
-          <h3>Geophysical Summer Intern</h3>
-          <h4>Oil and Natural Gas Corporation Limited (ONGC)</h4>
-          <span>May 2024 – Jun 2024 | Chennai, TN</span>
-        </div>
-      </div>
-      <!-- Add more roles as needed -->
-
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/infosys.png" alt="Turing logo" class="card-logo-outside" />
-          <h3>Virtual Internship</h3>
-          <h4>Infosys Springboard</h4>
-          <span>Oct 2024 – Dec 2024 | Remote</span>
-        </div>
-      </div>
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/mathworks.png" alt="ONGC logo" class="card-logo-outside" />
-          <h3>AI/ML Virtual Internship</h3>
-          <h4>MathWorks Inc.</h4>
-          <span>May 2024 – Jun 2024 | Remote</span>
-        </div>
-      </div>
-
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/niser.png" alt="ONGC logo" class="card-logo-outside" />
-          <h3>Summer Research Intern</h3>
+          <img src="src/assets/logos/niser.png" alt="NISER logo" class="card-logo-outside" />
+          <h3>Research Intern</h3>
           <h4>National Institute of Science Education and Research (NISER)</h4>
           <span>May 2023 – Jul 2023 | Bhubaneswar, OD</span>
+          <p>Georeferenced Chandrayaan-2 IIRS images using SPICE and FOV methods; computed incidence, emission, and phase angles for lunar topography analysis.</p>
         </div>
       </div>
     </section>
@@ -241,7 +216,7 @@
           <img src="src/assets/logos/mgkvp.jpeg" alt="Education logo" class="card-logo-outside" />
           <h3>B.Sc. in Mathematics & Physics</h3>
           <h4>Mahatma Gandhi Kashi Vidyapeeth (MGKVP), Varanasi</h4>
-          <span>Aug 2019 – May 2022</span>
+          <span>Aug 2019 – Mar 2022</span>
           <p>GPA: 8.05</p>
         </div>
       </div>
@@ -486,11 +461,10 @@
           document.documentElement.setAttribute('data-theme', storedTheme);
           setLogo(isDark);
         } else {
-          // b) Fallback to prefers-color-scheme
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          toggle.checked = prefersDark;
-          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-          setLogo(prefersDark);
+          // b) No stored preference yet: default to dark
+          toggle.checked = true;
+          document.documentElement.setAttribute('data-theme', 'dark');
+          setLogo(true);
         }
     
         // 3) (Optional) Save changes to localStorage
