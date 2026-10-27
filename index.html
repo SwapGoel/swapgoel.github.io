@@ -6,470 +6,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Swapnil Kumar Goel | Portfolio</title>
-    <meta name="title" content="SK Goel" />
+    <title>Swapnil Kumar Goel | 3D Interactive Portfolio</title>
+    <meta name="title" content="Swapnil Kumar Goel - Image Processing & Geophysics Portfolio" />
     <meta
       name="description"
-      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel with expertise in hyperspectral imaging, GIS, and geophysical analysis."
+      content="Interactive 3D scroll portfolio of Swapnil Kumar Goel. Journey through Theoretical Physics, Applied Geophysics at IIT ISM, SAR Processing at GalaxEye, and Hyperspectral Satellite Imaging at Pixxel."
     />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://github.com/swapgoel" />
-    <meta property="og:title" content="Swapnil Kumar Goel - Portfolio" />
+    <meta property="og:url" content="https://swapgoel.github.io" />
+    <meta property="og:title" content="Swapnil Kumar Goel | 3D Interactive Portfolio" />
     <meta
       property="og:description"
-      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel. Explore his journey through hyperspectral imaging, SAR processing, and geophysical research."
+      content="Interactive 3D journey through Physics, Geophysics, Spaceborne SAR, and Hyperspectral Earth Observation."
     />
     <meta property="og:image" content="src/assets/logo_title.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://github.com/swapgoel" />
-    <meta property="twitter:title" content="Swapnil Kumar Goel - Portfolio" />
-    <meta
-      property="twitter:description"
-      content="Portfolio of Swapnil Kumar Goel, Associate Image Processing Engineer at Pixxel and Applied Geophysics Master's graduate from IIT ISM Dhanbad."
-    />
-    <meta property="twitter:image" content="src/assets/logo_title.png" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="src/assets/logo_title.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="src/assets/logo_title_32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="src/assets/logo_title_16.png" />
-    <link rel="manifest" href="src/assets/site.webmanifest" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"/>
 
-
-
-    <!-- Styles -->
+    <!-- Font Awesome & Devicons -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/css/style.css" />
-    <link rel="stylesheet" href="src/css/utilities.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-    <!-- Journey map (hero) -->
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" />
-    <link rel="stylesheet" href="src/css/journey.css" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="src/css/scrollytelling.css" />
   </head>
   <body>
-    <header id="hero">
-      <nav class="navbar">
-        <div class="container">
-          <h1 id="logo">
-            <a href="https://github.com/swapgoel">
-              <img id="site-logo" src="src/assets/logo.png" alt="Swapnil Kumar Goel" />
-            </a>
-          </h1>
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
-            <li><a class="nav-link" href="#experience">EXPERIENCE</a></li>
-            <li><a class="nav-link" href="#education">EDUCATION</a></li>
-            <li><a class="nav-link" href="#trainings">TRAININGS</a></li>
-            <li><a class="nav-link" href="#skills">SKILLS</a></li>
-            <li><a class="nav-link" href="#contact">CONTACT</a></li>
-            <li>
-              <a class="nav-link btn btn-primary" href="src/assets/Resume_Swapnil.pdf" target="_blank">
-                RESUME    <i class="fas fa-file-alt"></i>
-              </a>
-            </li>
+    <!-- 3D WebGL Canvas Layer -->
+    <div id="webgl-canvas-container"></div>
 
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                <img class="moon" src="src/assets/moon.svg" />
-                <img class="sun" src="src/assets/sun.svg" />
-              </label>
-            </div>
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        </div>
-      </nav>
+    <!-- Navigation Bar -->
+    <header class="hud-navbar">
+      <a href="#stage-hero" class="hud-logo" aria-label="Swapnil Kumar Goel, back to top">
+        <span class="hud-logo-text">SWAPNIL KUMAR GOEL</span>
+      </a>
 
-<section id="journey" aria-label="Career journey map">
-  <div class="journey-sticky">
-    <div id="journey-map"></div>
-    <div class="journey-map-gradient"></div>
-    <div class="journey-card" id="journey-card"></div>
-    <ul class="journey-progress" id="journey-progress"></ul>
-  </div>
-  <div class="journey-steps" id="journey-steps">
-    <noscript>Enable JavaScript to view the interactive journey map — see Experience &amp; Education below.</noscript>
-  </div>
-</section>
+      <ul class="hud-nav-links">
+        <li><a href="#stage-physics" class="hud-nav-link">Physics</a></li>
+        <li><a href="#stage-geophysics" class="hud-nav-link">Geophysics</a></li>
+        <li><a href="#stage-sar" class="hud-nav-link">SAR</a></li>
+        <li><a href="#stage-hyperspectral" class="hud-nav-link">Hyperspectral</a></li>
+      </ul>
 
+      <div class="hud-actions">
+        <a href="src/assets/Resume_Swapnil.pdf" target="_blank" class="hud-btn hud-btn-primary">
+          <span>Resume</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </header>
 
-    <script src="src/js/script.js"></script>
-    <script src="src/js/typewriter.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
-    <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
-    <script src="src/js/journey.js"></script>
+    <!-- Soft shade behind the text column so it stays readable over the scene -->
+    <div class="scene-scrim" aria-hidden="true"></div>
 
-    <section id="projects" class="project-container container">
-            <div class="division"></div>
+    <!-- Master Scrollytelling Story Container -->
+    <main id="story-container">
+      <!-- Timeline rail: one continuous line through the education & experience entries -->
+      <div class="tl-rail" aria-hidden="true"><div class="tl-fill"></div></div>
 
-  <div class="content-text">
-    <h2>Projects</h2>
-    <p>Highlights of my Master's thesis and individual geophysical projects</p>
-  </div>
+      <!-- HERO: the "O" in GOEL is a 3D gyroscope ring drawn by the WebGL scene -->
+      <section id="stage-hero" class="story-stage stage-hero">
+        <h1 class="hero-name" aria-label="Swapnil Kumar Goel">
+          <span class="hero-first" aria-hidden="true">Swapnil Kumar</span>
+          <span class="hero-last" aria-hidden="true">G<span class="hero-o" id="hero-o"></span>EL</span>
+        </h1>
 
-  <article class="project">
-    <div class="card" data-bg="src/assets/project/QuakePedia.png">
-      <!-- ① This overlay‐link must be first inside .card -->
-      <a href="beachball.html" class="card-link-overlay"></a>
-
-      <!-- ② This .overlay should no longer intercept clicks -->
-      <div class="overlay"></div>
-
-      <div class="project-info">
-        <div class="project-bio">
-          <h3>Beach Ball Generator</h3>
-          <p>HTML, CSS, JS</p>
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
-        
-        <!-- <div class="project-link">
-           ③ The GitHub icon stays on top of everything 
-          <a href="https://github.com/swapgoel" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        </div> -->
-      </div>
-    </div>
-  </article>
+      </section>
 
-  <a href="https://github.com/swapgoel" class="btn btn-secondary" target="_blank">
-    See More <i class="fas fa-arrow-right"></i>
-  </a>
-</section>
-
-
-    <!-- Experience Section -->
-    <section id="experience" class="container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Experience</h2>
-        <p>Professional roles and internships in geophysics and data science</p>
-      </div>
-      <div class="card-wrapper">
-        <div class="card">
-          <img src="src/assets/logos/pixxel.png" alt="Pixxel logo" class="card-logo-outside" onerror="this.style.display='none'" />
-          <h3>Associate Image Processing Engineer</h3>
-          <h4>Pixxel</h4>
-          <span>Nov 2025 – Present | Bengaluru, KA</span>
-          <p>Hyperspectral image processing: built a Web GIS and an error-monitoring dashboard, georeferencing, band alignment and mosaic creation, AOI auto-clipping, QA/QC of hyperspectral images, and 2 QGIS plugins for hyperspectral analysis.</p>
+      <!-- 01 PHYSICS -->
+      <section id="stage-physics" class="story-stage">
+        <div class="credential">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="cred-logo light">
+            <img src="src/assets/logos/mgkvp_logo.png" alt="Mahatma Gandhi Kashi Vidyapith logo" />
+          </div>
+          <p class="cred-index">01 &middot; Physics</p>
+          <h2>Mahatma Gandhi Kashi Vidyapith</h2>
+          <p class="cred-role">B.Sc. Physics &amp; Mathematics</p>
+          <ul class="cred-meta">
+            <li>2019 – 2022</li>
+            <li>Varanasi</li>
+          </ul>
         </div>
-      </div>
-      <br />
-      <div class="card-wrapper">
-        <div class="card">
-          <img src="src/assets/logos/GalaxEye.jpg" alt="GalaxEye logo" class="card-logo-outside" />
-          <h3>Signal Processing Intern</h3>
-          <h4>GalaxEye</h4>
-          <span>May 2025 – Nov 2025 | Bengaluru, KA</span>
-          <p>Synthetic Aperture Radar (SAR): autofocus algorithms, image registration, geocoding and coregistration, and SAR image quality automation.</p>
+      </section>
+
+      <!-- 02 GEOPHYSICS -->
+      <section id="stage-geophysics" class="story-stage">
+        <div class="credential">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="cred-logo light">
+            <img src="src/assets/logos/iitism_logo.png" alt="IIT (ISM) Dhanbad logo" />
+          </div>
+          <p class="cred-index">02 &middot; Geophysics</p>
+          <h2>IIT (ISM) Dhanbad</h2>
+          <p class="cred-role">M.Sc. Tech. Applied Geophysics</p>
+          <ul class="cred-meta">
+            <li>2022 – 2025</li>
+            <li>Dhanbad</li>
+          </ul>
         </div>
-      </div>
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/niser.png" alt="NISER logo" class="card-logo-outside" />
-          <h3>Research Intern</h3>
-          <h4>National Institute of Science Education and Research (NISER)</h4>
-          <span>May 2023 – Jul 2023 | Bhubaneswar, OD</span>
-          <p>Georeferenced Chandrayaan-2 IIRS images using SPICE and FOV methods; computed incidence, emission, and phase angles for lunar topography analysis.</p>
+      </section>
+
+      <!-- 03 SAR -->
+      <section id="stage-sar" class="story-stage">
+        <div class="credential">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="cred-logo dark wide">
+            <img src="src/assets/logos/galaxeye_logo_white.svg" alt="GalaxEye logo" />
+          </div>
+          <p class="cred-index">03 &middot; Synthetic Aperture Radar</p>
+          <h2>GalaxEye Space</h2>
+          <p class="cred-role">Signal Processing Intern</p>
+          <ul class="cred-meta">
+            <li>May – Nov 2025</li>
+            <li>Bengaluru</li>
+          </ul>
+          <p class="cred-hint"><i class="fas fa-mouse-pointer"></i> Hover over Earth to see it in radar</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Education Section -->
-    <section id="education" class="container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Education</h2>
-        <p>Highlights of my academic journey</p>
-      </div>
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/iit_ism.png" alt="Education logo" class="card-logo-outside" />
-          <h3>M.Sc.Tech. in Applied Geophysics</h3>
-          <h4>Indian Institute of Technology (IIT ISM), Dhanbad</h4>
-          <span>Aug 2022 – May 2025</span>
-          <p>GPA: 8.27</p>
+      <!-- 04 HYPERSPECTRAL -->
+      <section id="stage-hyperspectral" class="story-stage">
+        <div class="credential">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="cred-logo dark wide">
+            <img src="src/assets/logos/pixxel_logo.jpg" alt="Pixxel logo" />
+          </div>
+          <p class="cred-index">04 &middot; Hyperspectral</p>
+          <h2>Pixxel</h2>
+          <p class="cred-role">Associate Image Processing Engineer</p>
+          <ul class="cred-meta">
+            <li>Nov 2025 – Present</li>
+            <li>Bengaluru</li>
+          </ul>
+          <p class="cred-hint"><i class="fas fa-mouse-pointer"></i> Hover over Earth for false-colour infrared</p>
         </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="hud-footer">
+      <div class="footer-social-links">
+        <a href="https://github.com/swapgoel" target="_blank" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/swapnilkumargoel" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:swapnilkumargoel@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/mgkvp.jpeg" alt="Education logo" class="card-logo-outside" />
-          <h3>B.Sc. in Mathematics & Physics</h3>
-          <h4>Mahatma Gandhi Kashi Vidyapeeth (MGKVP), Varanasi</h4>
-          <span>Aug 2019 – Mar 2022</span>
-          <p>GPA: 8.05</p>
-        </div>
-      </div>
-
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/dalimss.png" alt="Education logo" class="card-logo-outside" />
-          <h3>Intermediate in PCM</h3>
-          <h4>DALIMSS Sunbeam School, Varanasi</h4>
-          <span>Aug 2016 – May 2017</span>
-          <p>GPA: 8.04</p>
-        </div>
-      </div>
-
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/vps.png" alt="Education logo" class="card-logo-outside" />
-          <h3>HighSchool in Science</h3>
-          <h4>Varanasi Public School, Varanasi</h4>
-          <span>Aug 2014 – May 2015</span>
-          <p>GPA: 8.0</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trainings Section -->
-    <section id="trainings" class="container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Trainings & Certifications</h2>
-        <p>Highlights of my training experiences</p>
-      </div>
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
-          <h3>Geophysical Field Training</h3>
-          <h4>IIT ISM Dhanbad</h4>
-          <span>Dec 2023</span>
-        </div>
-      </div>
-      <br />
-      <div class="card-wrapper">
-        
-        <div class="card">
-          <img src="src/assets/logos/iit_ism.png" alt="Training logo" class="card-logo-outside" />
-          <h3>Geological Field Training</h3>
-          <h4>IIT ISM Dhanbad</h4>
-          <span>Dec 2022 – Jan 2023</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-  <section id="skills" class="skills-container container">
-  <div class="division"></div>
-  <div class="content-text">
-    <h2>Skills</h2>
-  </div>
-
-  <!-- Seismology Tools & Libraries -->
-  <div class="skills-group">
-    <h3 class="skills-group__title">Seismological Data Analysis</h3>
-    <ul class="skills-list skills-showcase__list">
-      <li class="skills-showcase__list-item">
-        <i class="devicon-bash-plain colored"></i>
-        <span class="skills-showcase__label">Shell Scripting</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-bash-plain colored"></i>
-        <span class="skills-showcase__label">SAC</span>        
-      </li>
-      <li class="skills-showcase__list-item">
-         <i class="devicon-bash-plain colored"></i>
-        <span class="skills-showcase__label">TauP</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/The-AWK-Programming-Language.svg" alt="AWK" class="skills-icon" />
-        <span class="skills-showcase__label">AWK</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img src="https://avatars.githubusercontent.com/u/1701221?s=280&v=4" alt="ObsPy" class="skills-icon" />
-        <span class="skills-showcase__label">ObsPy</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Programming Languages -->
-  <div class="skills-group">
-    <h3 class="skills-group__title">Languages</h3>
-    <ul class="skills-list skills-showcase__list">
-      <li class="skills-showcase__list-item">
-        <i class="devicon-python-plain colored"></i>
-        <span class="skills-showcase__label">Python</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-java-plain colored"></i>
-        <span class="skills-showcase__label">Java</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-matlab-plain colored"></i>
-        <span class="skills-showcase__label">MATLAB</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-mysql-plain colored"></i>
-        <span class="skills-showcase__label">MySQL</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-html5-plain colored"></i>
-        <span class="skills-showcase__label">HTML</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-css3-plain colored"></i>
-        <span class="skills-showcase__label">CSS</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-javascript-plain colored"></i>
-        <span class="skills-showcase__label">JavaScript</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Frameworks & Libraries -->
-  <div class="skills-group">
-    <h3 class="skills-group__title">Frameworks & Libraries</h3>
-    <ul class="skills-list skills-showcase__list">
-      <li class="skills-showcase__list-item">
-        <i class="devicon-tensorflow-original colored"></i>
-        <span class="skills-showcase__label">TensorFlow</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg"
-          alt="PyTorch"
-          class="devicon pytorch"
-        >
-        <span class="skills-showcase__label">PyTorch</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-scikitlearn-plain colored"></i>
-        <span class="skills-showcase__label">Scikit-learn</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img src="src/assets/logos/opencv.png" alt="QGIS" class="skills-icon" />
-        <span class="skills-showcase__label">OpenCV</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-pandas-plain colored"></i>
-        <span class="skills-showcase__label">Pandas</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-numpy-original colored"></i>
-        <span class="skills-showcase__label">NumPy</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-matplotlib-plain colored"></i>
-        <span class="skills-showcase__label">Matplotlib</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Tools & Platforms -->
-  <div class="skills-group">
-    <h3 class="skills-group__title">Tools & Platforms</h3>
-    <ul class="skills-list skills-showcase__list">
-      <li class="skills-showcase__list-item">
-        <i class="devicon-git-plain colored"></i>
-        <span class="skills-showcase__label">Git</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-docker-plain colored"></i>
-        <span class="skills-showcase__label">Docker</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <i class="devicon-linux-plain colored"></i>
-        <span class="skills-showcase__label">Linux</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img src="src/assets/logos/ARCGIS.png" alt="ArcGIS" class="skills-icon" />
-        <span class="skills-showcase__label">ArcGIS</span>
-      </li>
-      <li class="skills-showcase__list-item">
-        <img src="src/assets/logos/QGIS.png" alt="QGIS" class="skills-icon" />
-        <span class="skills-showcase__label">QGIS</span>
-      </li>
-
-      <li class="skills-showcase__list-item">
-        <i class="devicon-vscode-plain colored"></i>
-        <span class="skills-showcase__label">VS Code</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-    <!-- Contact -->
-    <footer id="contact" class="container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Contact</h2>
-        <p>
-          <a href="mailto:swapnilkumargoel@gmail.com">swapnilkumargoel@gmail.com</a><br />
-          <a href="https://github.com/swapgoel" target="_blank">GitHub</a> |
-          <a href="https://www.linkedin.com/in/swapnilkumargoel" target="_blank">LinkedIn</a>
-        </p>
-        <p>© Swapnil Kumar Goel, 2025. All rights reserved.</p>
-      </div>
+      <p>© Swapnil Kumar Goel</p>
     </footer>
+
+    <!-- Three.js & GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+
+    <!-- Custom WebGL 3D Engine & Application Scripts -->
+    <script src="src/js/three-scene.js"></script>
+    <script src="src/js/main.js"></script>
   </body>
 </html>
-
- <script>
-      (function() {
-        const toggle = document.getElementById('switch');
-        const logo  = document.getElementById('site-logo');
-    
-        // define your light/dark logo paths
-        const lightLogo = 'src/assets/logo.png';
-        const darkLogo  = 'src/assets/logo_dark.png';
-    
-        // utility to set logo based on a boolean isDark
-        function setLogo(isDark) {
-          logo.src = isDark ? darkLogo : lightLogo;
-        }
-    
-        // 1) Respond to the checkbox toggle
-        toggle.addEventListener('change', e => {
-          const isDark = e.target.checked;
-          document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-          setLogo(isDark);
-        });
-    
-        // 2) Initialize on page load
-        //    a) If you store preference in localStorage:
-        const storedTheme = localStorage.getItem('theme'); // 'dark' or 'light'
-        if (storedTheme) {
-          const isDark = storedTheme === 'dark';
-          toggle.checked = isDark;
-          document.documentElement.setAttribute('data-theme', storedTheme);
-          setLogo(isDark);
-        } else {
-          // b) No stored preference yet: default to dark
-          toggle.checked = true;
-          document.documentElement.setAttribute('data-theme', 'dark');
-          setLogo(true);
-        }
-    
-        // 3) (Optional) Save changes to localStorage
-        toggle.addEventListener('change', e => {
-          localStorage.setItem('theme', e.target.checked ? 'dark' : 'light');
-        });
-      })();
-    </script>

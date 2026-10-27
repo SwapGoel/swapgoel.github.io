@@ -1,0 +1,658 @@
+/**
+ * Swapnil Kumar Goel - Scrollytelling & 3D HUD Stylesheet
+ * Cyber-Geospatial / Space Mission Aesthetics
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg-deep-space: #020617;
+  --card-bg: rgba(15, 23, 42, 0.75);
+  --card-border: rgba(56, 189, 248, 0.22);
+  --card-glow: rgba(56, 189, 248, 0.12);
+
+  --accent-cyan: #38bdf8;
+  --accent-teal: #2dd4bf;
+  --accent-amber: #fbbf24;
+  --accent-violet: #a855f7;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+}
+
+/* Global Reset for 3D Viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--bg-deep-space);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Fixed WebGL Canvas Container */
+#webgl-canvas-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Navigation Header */
+.hud-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 clamp(16px, 4vw, 56px);
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 0) 100%);
+  transition: background 0.4s ease;
+}
+
+.hud-logo {
+  text-decoration: none;
+  color: var(--text-main);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.past-hero .hud-logo {
+  opacity: 1;
+}
+
+body.past-hero .hud-navbar {
+  background: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hud-logo-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.hud-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hud-nav-link {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.hud-nav-link:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.hud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hud-btn-primary {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(14, 165, 233, 0.35) 100%);
+  border: 1px solid var(--accent-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.hud-btn-primary:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35) 0%, rgba(14, 165, 233, 0.5) 100%);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
+.hud-btn-icon {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.hud-btn-icon:hover, .hud-btn-icon.active {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Scrollytelling Story Container */
+#story-container {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Individual Full-Screen Stage */
+.story-stage {
+  min-height: 110vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 8%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Credential: logo, name, role, dates - no box */
+.credential {
+  max-width: 460px;
+  pointer-events: auto;
+  text-shadow: 0 2px 18px rgba(2, 6, 23, 0.9);
+}
+
+.cred-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  margin-bottom: 26px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.cred-logo.light {
+  background: #ffffff;
+  padding: 8px;
+}
+
+.cred-logo.dark {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cred-logo.wide {
+  width: auto;
+  height: 64px;
+  padding: 0 22px;
+}
+
+.cred-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cred-logo.wide img {
+  height: 26px;
+  width: auto;
+  max-width: none;
+}
+
+.cred-index {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin: 0 0 10px;
+}
+
+.credential h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.cred-role {
+  font-size: 1.08rem;
+  color: var(--text-main);
+  opacity: 0.85;
+  margin: 0 0 14px;
+}
+
+.cred-meta {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.cred-meta li + li::before {
+  content: '\00B7';
+  margin: 0 10px;
+  color: var(--text-dim);
+}
+
+.cred-hint {
+  margin: 26px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.cred-hint i {
+  color: var(--accent-cyan);
+  margin-right: 6px;
+}
+
+/* Timeline: a continuous rail through the entries, a dot at each one */
+.story-stage {
+  --tl-offset: clamp(28px, 4vw, 64px); /* gap between the rail and the text column */
+}
+
+.credential {
+  position: relative;
+}
+
+.tl-rail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: rgba(148, 163, 184, 0.2);
+  pointer-events: none;
+}
+
+.tl-fill {
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.15) 0%, var(--accent-cyan) 100%);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+}
+
+.tl-dot {
+  position: absolute;
+  z-index: 1;
+  left: calc(-1 * var(--tl-offset));
+  top: 42px; /* level with the centre of the logo */
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--bg-deep-space);
+  border: 2px solid rgba(148, 163, 184, 0.55);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.credential:has(.cred-logo.wide) .tl-dot {
+  top: 32px;
+}
+
+.tl-dot.passed {
+  background: var(--accent-cyan);
+  border-color: #e0f2fe;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
+}
+
+/* Shade behind the text column (desktop: left edge; portrait: bottom edge) */
+.scene-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.35) 34%, rgba(2, 6, 23, 0) 52%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.past-hero .scene-scrim {
+  opacity: 1;
+}
+
+/* Feature Tag Pills */
+.hud-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.hud-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-main);
+  transition: all 0.2s;
+}
+
+.hud-pill:hover {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Scroll Hint Indicator on Hero Stage */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  pointer-events: none;
+  animation: float-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes float-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+.scroll-indicator i {
+  color: var(--accent-cyan);
+  font-size: 1rem;
+}
+
+/* Footer Section */
+.hud-footer {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px 5%;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  background: rgba(2, 6, 23, 0.9);
+  position: relative;
+  z-index: 20;
+}
+
+.footer-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.footer-social-links a {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-social-links a:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+/* Hero: the name, with the WebGL gyroscope ring standing in for the O */
+.story-stage.stage-hero {
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f8fafc;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero-first {
+  display: block;
+  font-size: clamp(1.15rem, 3.6vw, 3rem);
+  letter-spacing: 0.32em;
+  margin-right: -0.32em; /* letter-spacing adds a trailing gap; keep the line centred */
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.hero-last {
+  display: block;
+  font-size: clamp(5.5rem, 21vw, 17rem);
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  margin-top: 0.06em;
+}
+
+/* Placeholder box for the ring: sits on the baseline, cap-height tall. Without WebGL it is a
+   plain CSS ring so the name still reads. */
+.hero-o {
+  display: inline-block;
+  width: 0.74em;
+  height: 0.72em;
+  margin: 0 0.03em;
+  box-sizing: border-box;
+  border: 0.13em solid currentColor;
+  border-radius: 50%;
+}
+
+body.webgl-ready .hero-o {
+  border-color: transparent;
+}
+
+/* Geophysics: a 3D magnet replaces the pointer; SAR / hyperspectral: a lens.
+   The header keeps its normal cursor. */
+body.magnet-cursor,
+body.magnet-cursor #story-container,
+body.magnet-cursor #story-container *,
+body.lens-cursor,
+body.lens-cursor #story-container,
+body.lens-cursor #story-container * {
+  cursor: none;
+}
+
+/* Magnifying glass: ring centred on the pointer, handle off to the lower right */
+#lens-cursor {
+  --lens-r: 44px;
+  --lens-c: 103, 232, 249;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+#lens-cursor.hsi {
+  --lens-c: 255, 140, 140;
+}
+
+#lens-cursor::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--lens-r));
+  top: calc(-1 * var(--lens-r));
+  width: calc(2 * var(--lens-r));
+  height: calc(2 * var(--lens-r));
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 3px solid rgba(var(--lens-c), 0.95);
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 45%);
+  box-shadow: 0 0 0 1px rgba(2, 6, 23, 0.6), 0 0 18px rgba(var(--lens-c), 0.45), inset 0 0 12px rgba(var(--lens-c), 0.25);
+}
+
+#lens-cursor::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--lens-r) * 0.7071 - 2px);
+  top: -5px;
+  width: calc(var(--lens-r) * 0.6 + 18px);
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #cbd5e1, #64748b);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transform-origin: 0 50%;
+  transform: translateY(calc(var(--lens-r) * 0.7071)) rotate(45deg);
+}
+
+/* Labels pinned to points in the 3D scene */
+#scene-labels {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scene-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  padding-left: 14px;
+  margin-top: -0.6em;
+  text-shadow: 0 1px 6px rgba(2, 6, 23, 0.95), 0 0 2px rgba(2, 6, 23, 1);
+  will-change: transform, opacity;
+}
+
+.scene-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.scene-label b {
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+.scene-label span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.64rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Narrow desktops: drop the section links before the header can crowd */
+@media (max-width: 1080px) {
+  .hud-nav-links {
+    display: none;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Section centred in the viewport spans -15vh..115vh; the padding lands the text in the
+     lower third, under the scene. */
+  .story-stage {
+    --tl-offset: 22px;
+    padding: 100px 20px calc(15vh + 48px) 46px;
+    align-items: flex-end;
+    min-height: 130vh;
+  }
+  .story-stage.stage-hero {
+    min-height: 100vh;
+    align-items: center;
+    padding-bottom: 100px;
+  }
+  .hud-logo-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+  .cred-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+  }
+  .tl-dot {
+    top: 32px;
+  }
+  .credential:has(.cred-logo.wide) .tl-dot {
+    top: 26px;
+  }
+  .cred-logo.wide {
+    height: 52px;
+  }
+  .cred-logo.wide img {
+    height: 22px;
+  }
+  .scene-scrim {
+    background: linear-gradient(0deg, rgba(2, 6, 23, 0.85) 0%, rgba(2, 6, 23, 0.4) 30%, rgba(2, 6, 23, 0) 48%);
+  }
+  .scene-label {
+    font-size: 0.62rem;
+  }
+}
+
