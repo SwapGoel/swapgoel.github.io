@@ -280,6 +280,64 @@ body.past-hero .hud-navbar {
   color: var(--text-dim);
 }
 
+.cred-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.cred-skills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: var(--text-main);
+  text-shadow: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.cred-skills i {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.cred-skills .fa-square-root-alt {
+  color: #e8c35a;
+  font-size: 0.9rem;
+}
+
+.cred-skills .fa-th {
+  color: #7dd3c0;
+  font-size: 0.9rem;
+}
+
+.cred-skills .fa-image {
+  color: #f7931e;
+  font-size: 0.9rem;
+}
+
+/* Lighter brand shades for icons whose own colours vanish on the dark chips */
+.cred-skills .devicon-java-plain.colored {
+  color: #f89820;
+}
+
+.cred-skills .devicon-mysql-plain.colored {
+  color: #5fa8d8;
+}
+
+.cred-skills img {
+  width: 16px;
+  height: 16px;
+}
+
 .cred-hint {
   margin: 26px 0 0;
   font-family: var(--font-mono);
